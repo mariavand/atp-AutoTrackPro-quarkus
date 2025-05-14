@@ -1,4 +1,4 @@
-# code-with-quarkus
+# atp-AutoTrackPro-quarkus
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
