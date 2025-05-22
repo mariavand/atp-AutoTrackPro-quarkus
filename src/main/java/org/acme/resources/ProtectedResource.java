@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.resources;
 
 import io.quarkus.security.Authenticated;
 import jakarta.annotation.security.RolesAllowed;
@@ -13,7 +13,6 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 @Path("/api")
 @RequestScoped
 public class ProtectedResource {
-
     @Inject
     JsonWebToken jwt; // Inject the JWT for accessing claims
 
