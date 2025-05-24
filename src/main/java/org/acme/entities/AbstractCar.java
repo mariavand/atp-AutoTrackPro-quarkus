@@ -1,44 +1,47 @@
 package org.acme.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import jakarta.json.bind.annotation.JsonbProperty;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
 import java.time.Instant;
 
 @MappedSuperclass
-public abstract class AbstractCar extends PanacheEntity {
-    @JsonProperty("ownerNameSurname")
+public abstract class AbstractCar extends PanacheEntityBase {
+    @JsonbProperty("ownerNameSurname")
     public String owner_name_surname;
-    @JsonProperty("serialNumber")
+    @JsonbProperty("serialNumber")
     public String serial_number;
-    @JsonProperty("softwareVersion")
+    @JsonbProperty("softwareVersion")
     public String software_version;
-    @JsonProperty("techComments")
+    @JsonbProperty("techComments")
     public String tech_comments;
-    @JsonProperty("buyingDay")
+    @JsonbProperty("buyingDay")
     public Instant buying_day;
-    @JsonProperty("editedBy")
+    @JsonbProperty("editedBy")
     public String edited_by;
-    @JsonProperty("lastUpdateDate")
+    @JsonbProperty("lastUpdateDate")
     public Instant last_update_date;
-    @JsonProperty("lockedBy")
+    @JsonbProperty("lockedBy")
     public String locked_by;
-    @JsonProperty("generalComments")
+    @JsonbProperty("generalComments")
     public String general_comments;
-    @JsonProperty("salesComments")
+    @JsonbProperty("salesComments")
     public String sales_comments;
-    @JsonProperty("batteryChangeDate")
+    @JsonbProperty("batteryChangeDate")
     public Instant battery_change_date;
-    @JsonProperty("paymentStatus")
+    @JsonbProperty("paymentStatus")
     public String payment_status;
-    @JsonProperty("finalPrice")
+    @JsonbProperty("finalPrice")
     public String final_price;
-    @JsonProperty("initialPrice")
+    @JsonbProperty("initialPrice")
     public String initial_price;
-    @JsonProperty("airConditioning")
+    @JsonbProperty("airConditioning")
     public String air_conditioning;
-    @JsonProperty("fuelType")
+    @JsonbProperty("fuelType")
     public String fuel_type;
     public String seats;
     public String transmission;
