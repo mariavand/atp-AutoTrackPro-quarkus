@@ -36,16 +36,16 @@ public abstract class AbstractCar extends PanacheEntityBase {
     @JsonbProperty("paymentStatus")
     public String payment_status;
     @JsonbProperty("finalPrice")
-    public String final_price;
+    public Float final_price;
     @JsonbProperty("initialPrice")
-    public String initial_price;
+    public Float initial_price;
     @JsonbProperty("airConditioning")
-    public String air_conditioning;
+    public Boolean air_conditioning;
     @JsonbProperty("fuelType")
     public String fuel_type;
     public String seats;
-    public String transmission;
-    public String gps;
+    public Integer transmission;
+    public Boolean gps;
     public String bluetooth;
     public String status;
     public String color;

@@ -15,7 +15,7 @@ public class Car extends AbstractCar {
     public Long car_id;
     public String model;
     public String brand;
-    public String year;
+    public Integer year;
     public Car(){
         super();
     }
