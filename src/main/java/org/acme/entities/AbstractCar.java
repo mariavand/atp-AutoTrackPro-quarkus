@@ -1,13 +1,12 @@
 package org.acme.entities;
 
+import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.json.bind.annotation.JsonbProperty;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.time.LocalDate;
 
 @MappedSuperclass
 public abstract class AbstractCar extends PanacheEntityBase {
@@ -20,7 +19,8 @@ public abstract class AbstractCar extends PanacheEntityBase {
     @JsonbProperty("techComments")
     public String tech_comments;
     @JsonbProperty("buyingDay")
-    public Instant buying_day;
+    public LocalDate buying_day;
+
     @JsonbProperty("editedBy")
     public String edited_by;
     @JsonbProperty("lastUpdateDate")
@@ -32,7 +32,7 @@ public abstract class AbstractCar extends PanacheEntityBase {
     @JsonbProperty("salesComments")
     public String sales_comments;
     @JsonbProperty("batteryChangeDate")
-    public Instant battery_change_date;
+    public LocalDate battery_change_date;
     @JsonbProperty("paymentStatus")
     public String payment_status;
     @JsonbProperty("finalPrice")
@@ -43,10 +43,10 @@ public abstract class AbstractCar extends PanacheEntityBase {
     public Boolean air_conditioning;
     @JsonbProperty("fuelType")
     public String fuel_type;
-    public String seats;
+    public Integer seats;
     public Integer transmission;
     public Boolean gps;
-    public String bluetooth;
+    public Boolean bluetooth;
     public String status;
     public String color;
 
