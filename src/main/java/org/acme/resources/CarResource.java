@@ -1,5 +1,6 @@
 package org.acme.resources;
 
+import io.quarkus.security.Authenticated;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -43,6 +44,29 @@ public class CarResource {
 
         if(carOptional.isPresent()){
             Car existingCar = carOptional.get();
+
+            existingCar.owner_name_surname = updatedCar.owner_name_surname;
+            existingCar.serial_number = updatedCar.serial_number;
+            existingCar.software_version = updatedCar.software_version;
+            existingCar.tech_comments = updatedCar.tech_comments;
+            existingCar.buying_day = updatedCar.buying_day;
+            existingCar.edited_by = updatedCar.edited_by;
+            existingCar.last_update_date = updatedCar.last_update_date;
+            existingCar.locked_by = updatedCar.locked_by;
+            existingCar.general_comments = updatedCar.general_comments;
+            existingCar.sales_comments = updatedCar.sales_comments;
+            existingCar.battery_change_date = updatedCar.battery_change_date;
+            existingCar.payment_status = updatedCar.payment_status;
+            existingCar.final_price = updatedCar.final_price;
+            existingCar.initial_price = updatedCar.initial_price;
+            existingCar.air_conditioning = updatedCar.air_conditioning;
+            existingCar.fuel_type = updatedCar.fuel_type;
+            existingCar.seats = updatedCar.seats;
+            existingCar.transmission = updatedCar.transmission;
+            existingCar.bluetooth = updatedCar.bluetooth;
+            existingCar.status = updatedCar.status;
+            existingCar.color = updatedCar.color;
+
             return Response.ok(existingCar).build();
         }
         else{

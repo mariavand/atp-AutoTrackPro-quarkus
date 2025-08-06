@@ -16,6 +16,9 @@ public class Car extends AbstractCar {
     public String model;
     public String brand;
     public Integer year;
+    public Integer seats;
+    @JsonbProperty("lockedBy")
+    public String locked_by;
     public Car(){
         super();
     }

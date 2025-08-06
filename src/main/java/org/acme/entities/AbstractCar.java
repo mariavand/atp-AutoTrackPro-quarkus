@@ -25,8 +25,6 @@ public abstract class AbstractCar extends PanacheEntityBase {
     public String edited_by;
     @JsonbProperty("lastUpdateDate")
     public Instant last_update_date;
-    @JsonbProperty("lockedBy")
-    public String locked_by;
     @JsonbProperty("generalComments")
     public String general_comments;
     @JsonbProperty("salesComments")
@@ -43,7 +41,6 @@ public abstract class AbstractCar extends PanacheEntityBase {
     public Boolean air_conditioning;
     @JsonbProperty("fuelType")
     public String fuel_type;
-    public Integer seats;
     public Integer transmission;
     public Boolean gps;
     public Boolean bluetooth;

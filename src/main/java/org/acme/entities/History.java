@@ -13,10 +13,12 @@ public class History extends AbstractCar {
 
     @JsonbProperty("historyId")
     public Long history_id;
+    @JsonbProperty("carId")
     @JoinColumn(name = "car_id")
-    @ManyToOne
-    public Car car;
+    public Long car_id;
     public History(){
         super();
     }
+
+
 }
