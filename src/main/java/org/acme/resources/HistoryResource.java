@@ -16,8 +16,8 @@ import static java.lang.System.out;
 public class HistoryResource {
     @GET
     @Path("{id}")
-    public History findHistoryById(@PathParam("id") Long id){
-        return (History) History.findByIdOptional(id).orElseThrow(NotFoundException::new);
+    public List<History> findHistoryById(@PathParam("id") Long id){
+        return History.findAllByCarId(id);
     }
     @GET
     public List<History> listAllHistory(){

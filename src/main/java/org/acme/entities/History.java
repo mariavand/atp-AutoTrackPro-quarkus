@@ -1,9 +1,10 @@
 package org.acme.entities;
 
+import io.quarkus.panache.common.Sort;
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.persistence.*;
 
-import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "history")
@@ -20,5 +21,8 @@ public class History extends AbstractCar {
         super();
     }
 
+    public static List<History> findAllByCarId(Long car_id){
+        return History.list("car_id = ?1", Sort.by("history_id", Sort.Direction.Descending), car_id);
+    }
 
 }
