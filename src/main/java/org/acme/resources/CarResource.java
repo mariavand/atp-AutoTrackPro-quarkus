@@ -1,11 +1,14 @@
 package org.acme.resources;
 
 import io.quarkus.security.Authenticated;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.acme.entities.Car;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,18 +17,25 @@ import java.util.Optional;
 @Path("/api/cars")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@RequestScoped
 public class CarResource {
+
+    @Inject
+    JsonWebToken jwt;
     @GET
+    @Authenticated
     @Path("{id}")
     public Car findCarById(@PathParam("id") Long id){
         return (Car) Car.findByIdOptional(id).orElseThrow(NotFoundException::new);
     }
     @GET
+    @Authenticated
     public List<Car> listAllCars(){
         return Car.listAll();
     }
 
     @POST
+    @Authenticated
     @Transactional
     public Response createCar(Car car){
         System.out.println("The car is: " + car);
@@ -37,6 +47,7 @@ public class CarResource {
     }
 
     @PUT
+    @Authenticated
     @Path("/{id}")
     @Transactional
     public Response updateCar(@PathParam("id") Long id, Car updatedCar){
@@ -78,6 +89,7 @@ public class CarResource {
     }
 
     @DELETE
+    @Authenticated
     @Path("/{id}")
     @Transactional
     public Response deleteCar(@PathParam("id") Long id){
