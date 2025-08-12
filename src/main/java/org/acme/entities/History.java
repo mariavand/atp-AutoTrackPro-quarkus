@@ -25,4 +25,8 @@ public class History extends AbstractCar {
         return History.list("car_id = ?1", Sort.by("history_id", Sort.Direction.Descending), car_id);
     }
 
+    public static long deleteAllByCarId(Long carId) {
+        return History.delete("car_id = ?1", carId);
+    }
+
 }

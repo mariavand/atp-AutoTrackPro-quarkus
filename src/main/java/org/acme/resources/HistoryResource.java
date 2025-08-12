@@ -34,4 +34,18 @@ public class HistoryResource {
 
         return Response.status(Response.Status.CREATED).entity(history).build();
     }
+
+    @DELETE
+    @Authenticated
+    @Path("/{id}")
+    @Transactional
+    public Response deleteCarHistory(@PathParam("id") Long id){
+        Long deleted = History.deleteAllByCarId(id);
+        if (deleted > 0) {
+            return Response.noContent().build();
+        }
+        else{
+            return Response.status(Response.Status.NOT_FOUND).build(); // 404 Not Found
+        }
+    }
 }
