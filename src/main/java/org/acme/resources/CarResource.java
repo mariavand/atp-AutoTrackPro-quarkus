@@ -38,10 +38,7 @@ public class CarResource {
     @Authenticated
     @Transactional
     public Response createCar(Car car){
-        System.out.println("The car is: " + car);
         Car.persist(car);
-
-//        CarLockingSocketResource.onMessage(CarLockingSocketResource.MessageType.CAR_UNLOCKED);
 
         return Response.status(Response.Status.CREATED).entity(car).build();
     }
@@ -95,7 +92,6 @@ public class CarResource {
     public Response deleteCar(@PathParam("id") Long id){
         boolean deleted = Car.deleteById(id);
         if (deleted) {
-//            CarLockingSocketResource.broadcast("Car deleted: ID " + id);
             return Response.noContent().build();
         }
         else{
